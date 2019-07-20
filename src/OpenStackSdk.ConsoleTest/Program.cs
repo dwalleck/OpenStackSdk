@@ -9,7 +9,7 @@ namespace OpenStackSdk.ConsoleTest
         static async System.Threading.Tasks.Task Main(string[] args)
         {
             var identityClient = new CloudIdentityClient("https://identity.api.rackspacecloud.com");
-            var tokenResponse = await identityClient.Authenticate("dwnova", "aab8017a4a644a0fa1972959b0f1b06f", "678220");
+            var tokenResponse = await identityClient.Authenticate();
             var computeEndpoint = tokenResponse.GetEndpoint("cloudServersOpenStack", "IAD");
             var computeClient = new ComputeClient(computeEndpoint.PublicUrl, tokenResponse.Token.Id);
             var servers = await computeClient.ListServersAsync();
