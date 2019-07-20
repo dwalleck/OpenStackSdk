@@ -27,7 +27,6 @@ namespace OpenStackSdk.Core.Compute
             var responseBody = await response.Content.ReadAsStringAsync();
             var serversResponse = JsonConvert.DeserializeObject<ListServersResponse>(responseBody);
             return serversResponse;
-
         }
 
         public async Task<ListFlavorsResponse> ListFlavorsAsync()
